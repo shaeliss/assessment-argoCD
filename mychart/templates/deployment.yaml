@@ -24,9 +24,12 @@ spec:
       containers:
         - name: my-python-app
           image: andresia/assessment:18
+          resources:
+          limits:
+            memory: "128Mi"
+            cpu: "500m"
           ports:
-            - containerPort: 8080
-
+          - containerPort: 5000
 ---
 apiVersion: v1
 kind: Service
@@ -38,8 +41,8 @@ spec:
   type: NodePort
   ports:
     - protocol: TCP
-      port: 8080
-      targetPort: 8080
+      port: 6000
+      targetPort: 5000
       nodePort: 30083
 
 ---
