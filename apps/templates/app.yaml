@@ -11,7 +11,7 @@ spec:
     path: mychart/templates
   destination:
     server: https://kubernetes.default.svc
-    namespace: {{ .Values.ns }}
+    namespace: argocd
   syncPolicy:
     automated:
       prune: true
