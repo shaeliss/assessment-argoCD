@@ -23,7 +23,7 @@ spec:
       serviceAccountName: my-service-account
       containers:
         - name: my-python-app
-          image: andresia/assessment:17
+          image: andresia/assessment:18
           ports:
             - containerPort: 8080
 
