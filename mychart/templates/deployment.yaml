@@ -54,6 +54,7 @@ metadata:
   name: my-application-ingress
   annotations:
     kubernetes.io/ingress.class: traefik
+  namespace: {{ .Values.ns }}
 spec:
   rules:
     - host: trg-assessment-as.com 
