@@ -8,7 +8,7 @@ spec:
   source:
     repoURL: https://github.com/shaeliss/assessment-argoCD.git
     targetRevision: HEAD
-    path: mychart/templates
+    path: ../../mychart/templates
   destination:
     server: https://kubernetes.default.svc
     namespace: {{ .Values.ns }}
