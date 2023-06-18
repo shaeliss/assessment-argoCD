@@ -53,6 +53,8 @@ kind: Ingress
 metadata:
   name: my-application-ingress
   namespace: {{ .Values.ns }}
+  annotations:
+    traefik.ingress.kubernetes.io/router.entrypoints: web
 spec:
   rules:
   - http:
