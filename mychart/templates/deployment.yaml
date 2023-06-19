@@ -53,7 +53,7 @@ metadata:
   namespace: dev
 spec:
   rules:
-    - host: example.net
+    - host: localhost
       http:
         paths:
           - path: /bar
