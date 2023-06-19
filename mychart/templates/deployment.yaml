@@ -67,3 +67,28 @@ spec:
                 port:
                   number: 8085
 ---
+apiVersion: traefik.io/v1alpha1
+kind: Middleware
+metadata:
+  name: test-ipwhitelist
+spec:
+  ipWhiteList:
+    sourceRange:
+      - 109.110.241.40
+---
+apiVersion: traefik.containo.us/v1alpha1
+kind: IngressRoute
+metadata:
+  name: my-app
+  namespace: dev
+spec:
+  entryPoints:
+    - web
+  routes:
+    - match: Host(`assessment-as.com`)
+      kind: Rule
+      middlewares:
+        - name: ip-whitelist
+      services:
+        - name: my-python-app
+          port: 8085
