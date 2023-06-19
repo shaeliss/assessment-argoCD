@@ -1,1 +1,2 @@
 ns: staging
+image: andresia/assessment:18
