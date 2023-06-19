@@ -40,39 +40,17 @@ metadata:
 spec:
   selector:
     app: my-python-app
-  type: NodePort
+  type: ClusterIP
   ports:
     - protocol: TCP
       port: 8080
       targetPort: 8080
-      nodePort: 30083
-
----
-# apiVersion: networking.k8s.io/v1
-# kind: Ingress
-# metadata:
-#   name: my-application-ingress
-#   namespace: {{ .Values.ns }}
-#   annotations:
-#     traefik.ingress.kubernetes.io/router.entrypoints: web
-# spec:
-#   rules:
-#   - http:
-#       paths:
-#       - path: /
-#         pathType: Prefix
-#         backend:
-#           service:
-#             name: my-python-app
-#             port:
-#               number: 8080
 ---
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
   name: foo
   namespace: dev
-
 spec:
   rules:
     - host: example.net
