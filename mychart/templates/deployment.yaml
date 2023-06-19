@@ -24,7 +24,7 @@ spec:
       serviceAccountName: my-service-account
       containers:
         - name: my-python-app
-          image: andresia/assessment:18
+          image: {{ .Values.image }}
           resources:
           limits:
             memory: "128Mi"
