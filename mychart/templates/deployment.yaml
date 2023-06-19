@@ -70,15 +70,18 @@ spec:
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
-  name: my-python-app
-  namespace: {{ .Values.ns }}
+  name: foo
+  namespace: dev
+
 spec:
   rules:
-    http:
-      paths:
-      - path: /
-        backend:
-          service:
-            name: my-python-app
-            port:
-              number: 8080
+    - host: example.net
+      http:
+        paths:
+          - path: /bar
+            pathType: Exact
+            backend:
+              service:
+                name:  my-python-app
+                port:
+                  number: 8080
