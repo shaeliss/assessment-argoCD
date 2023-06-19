@@ -46,32 +46,11 @@ spec:
       port: 8085
       targetPort: 8080
 ---
-apiVersion: networking.k8s.io/v1
-kind: Ingress
-metadata:
-  name: foo
-  namespace: dev
-  annotations:
-    kubernetes.io/ingress.class: traefik
-    traefik.ingress.kubernetes.io/router.entrypoints: web
-spec:
-  rules:
-    - host: assessment-as.com
-      http:
-        paths:
-          - path: /test
-            pathType: Exact
-            backend:
-              service:
-                name:  my-python-app
-                port:
-                  number: 8085
----
 apiVersion: traefik.io/v1alpha1
 kind: Middleware
 metadata:
   name: ip-whitelist
-  namespace: dev
+  namespace: {{ .Values.ns }}
 spec:
   ipWhiteList:
     sourceRange:
@@ -81,7 +60,7 @@ apiVersion: traefik.containo.us/v1alpha1
 kind: IngressRoute
 metadata:
   name: my-app
-  namespace: dev
+  namespace: {{ .Values.ns }}
 spec:
   entryPoints:
     - web
