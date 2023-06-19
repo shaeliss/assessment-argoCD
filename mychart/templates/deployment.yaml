@@ -48,21 +48,36 @@ spec:
       nodePort: 30083
 
 ---
-apiVersion: networking.k8s.io/v1
+# apiVersion: networking.k8s.io/v1
+# kind: Ingress
+# metadata:
+#   name: my-application-ingress
+#   namespace: {{ .Values.ns }}
+#   annotations:
+#     traefik.ingress.kubernetes.io/router.entrypoints: web
+# spec:
+#   rules:
+#   - http:
+#       paths:
+#       - path: /
+#         pathType: Prefix
+#         backend:
+#           service:
+#             name: my-python-app
+#             port:
+#               number: 8080
+---
+apiVersion: extensions/v1beta1
 kind: Ingress
 metadata:
-  name: my-application-ingress
+  name: my-python-app
   namespace: {{ .Values.ns }}
-  annotations:
-    traefik.ingress.kubernetes.io/router.entrypoints: web
 spec:
   rules:
-  - http:
+    http:
       paths:
       - path: /
-        pathType: Prefix
         backend:
-          service:
-            name: my-python-app
-            port:
-              number: 8080
+          serviceName: my-python-app
+          servicePort: 8080
+
