@@ -53,10 +53,10 @@ metadata:
   namespace: dev
 spec:
   rules:
-    - host: localhost
+    - host: assessment-as.com
       http:
         paths:
-          - path: /bar
+          - path: /test
             pathType: Exact
             backend:
               service:
