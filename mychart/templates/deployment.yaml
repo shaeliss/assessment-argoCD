@@ -82,5 +82,3 @@ spec:
             name: my-python-app
             port:
               number: 8080
-            namespace: dev
-
