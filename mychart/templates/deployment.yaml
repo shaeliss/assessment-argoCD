@@ -51,6 +51,8 @@ kind: Ingress
 metadata:
   name: foo
   namespace: dev
+  annotations:
+    kubernetes.io/ingress.class: traefik
 spec:
   rules:
     - host: assessment-as.com
