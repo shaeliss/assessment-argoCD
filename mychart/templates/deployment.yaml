@@ -53,6 +53,7 @@ metadata:
   namespace: dev
   annotations:
     kubernetes.io/ingress.class: traefik
+    traefik.ingress.kubernetes.io/router.entrypoints: web
 spec:
   rules:
     - host: assessment-as.com
