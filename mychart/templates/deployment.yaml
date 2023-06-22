@@ -57,7 +57,7 @@ metadata:
 spec:
   ipWhiteList:
     sourceRange:
-      - 109.110.241.40
+      - 109.112.213.38
 ---
 apiVersion: traefik.containo.us/v1alpha1
 kind: IngressRoute
